@@ -19,7 +19,7 @@ jobs:
     uses: ./.github/workflows/reusable-build-and-publish-workflow.yml
     with:
         docker_build_context: './matlab-deps/r2023a/ubuntu20.04'
-        base_image_name: 'mathworks/matlab-deps'
+        base_image_name: 'mathworks-ref-arch/matlab-deps'
         matlab_release_tag: 'r2023a'
         os_info_tag: 'ubuntu20.04'
         add_is_latest_tag: true
