@@ -24,4 +24,4 @@ jobs:
         base_image_name: ${{ github.repository }}/matlab-deps
         matlab_release_tag: 'r2020b'
         os_info_tag: 'ubuntu20.04'
-        should_add_latest_tag: true
+        should_add_latest_tag: false
