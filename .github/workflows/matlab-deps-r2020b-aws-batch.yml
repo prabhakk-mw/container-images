@@ -1,5 +1,5 @@
-# Build & Publish matlab-deps/r2023a/ubuntu20.04
-name: matlab-deps-r2023a-ubuntu20.04
+# Build & Publish matlab-deps/r2020b/aws-batch
+name: matlab-deps-r2020b-aws-batch
 
 # Define when builds will occur:
 on:
@@ -8,7 +8,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'matlab-deps/r2023a/ubuntu20.04/**'
+      - 'matlab-deps/r2020b/aws-batch/**'
 
   # Run at 00:00 on every Monday (1st Day of the Week) (See: crontab.guru)
   schedule:
@@ -20,8 +20,8 @@ jobs:
   build-and-publish-docker-image:
     uses: ./.github/reusable-workflows/build-and-publish-docker-image.yml
     with:
-        docker_build_context: './matlab-deps/r2023a/ubuntu20.04'
+        docker_build_context: './matlab-deps/r2020b/aws-batch'
         base_image_name: ${{ github.repository }}/matlab-deps
-        matlab_release_tag: 'r2023a'
-        os_info_tag: 'ubuntu20.04'
+        matlab_release_tag: 'r2020b'
+        os_info_tag: 'aws-batch'
         should_add_latest_tag: true
