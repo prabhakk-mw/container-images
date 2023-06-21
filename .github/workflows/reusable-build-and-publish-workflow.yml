@@ -27,10 +27,9 @@ on:
         description: 'Allowed values: aws-batch, ubi8, ubi9, ubuntu20.04 ubuntu22.04'
         required: true
         type: string
-      add_is_latest_tag:
+      should_add_latest_tag:
         description: 'Specify if this image should also be tagged as latest'
-        required: false
-        default: false
+        required: true
         type: boolean
 
 jobs:
@@ -51,7 +50,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build & Push Image
-        if: ${{ inputs.add_is_latest_tag }} != true
+        if: !inputs.should_add_latest_tag
         uses: docker/build-push-action@v4
         with:
           context: ${{ inputs.docker_build_context }}
@@ -61,7 +60,7 @@ jobs:
             ghcr.io/${{ inputs.base_image_name }}:${{ inputs.matlab_release_tag }}-${{ inputs.os_info_tag }}
       
       - name: Build & Push Image with latest Tag
-        if: ${{ inputs.add_is_latest_tag }} == true
+        if: inputs.should_add_latest_tag
         uses: docker/build-push-action@v4
         with:
           context: ${{ inputs.docker_build_context }}
