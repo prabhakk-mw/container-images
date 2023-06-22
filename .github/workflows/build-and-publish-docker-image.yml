@@ -32,6 +32,10 @@ on:
         required: true
         type: boolean
 
+
+env:
+  image_tag: ${{ inputs.matlab_release_tag }}-${{ inputs.os_info_tag }}
+  image_tag_pascal_case: "${${{ inputs.matlab_release_tag }}^}-${{ inputs.os_info_tag }}"
 jobs:
   build-push-image:
     runs-on: ubuntu-latest
@@ -64,7 +68,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ inputs.base_image_name }}:${{ inputs.matlab_release_tag }}-${{ inputs.os_info_tag }}
+            ghcr.io/${{ inputs.base_image_name }}:${{ env.image_tag }}
       
       - name: Build & Push Image with latest Tag
         if: ${{ inputs.should_add_latest_tag == true }}
@@ -74,6 +78,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ inputs.base_image_name }}:${{ inputs.matlab_release_tag }}-${{ inputs.os_info_tag }}
+            ghcr.io/${{ inputs.base_image_name }}:${{ env.image_tag }}
+            ghcr.io/${{ inputs.base_image_name }}:${{ env.image_tag_pascal_case }}
             ghcr.io/${{ inputs.base_image_name }}:latest
 
