@@ -23,7 +23,7 @@ jobs:
     secrets: inherit
     with:
         docker_build_context: './matlab-deps/r2021a/ubuntu20.04'
-        base_image_name: mathworks/matlab-deps
+        base_image_name: prabhakk/matlab-deps
         matlab_release_tag: 'r2021a'
         os_info_tag: 'ubuntu20.04'
         is_default_os: true

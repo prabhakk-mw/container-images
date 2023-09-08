@@ -23,7 +23,7 @@ jobs:
     secrets: inherit
     with:
         docker_build_context: './polyspace-deps/r2023b/ubuntu22.04'
-        base_image_name: mathworks/polyspace-deps
+        base_image_name: prabhakk/polyspace-deps
         matlab_release_tag: 'r2023b'
         os_info_tag: 'ubuntu22.04'
         is_default_os: true

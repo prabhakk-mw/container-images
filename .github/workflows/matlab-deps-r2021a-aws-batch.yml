@@ -23,7 +23,7 @@ jobs:
     secrets: inherit
     with:
         docker_build_context: './matlab-deps/r2021a/aws-batch'
-        base_image_name: mathworks/matlab-deps
+        base_image_name: prabhakk/matlab-deps
         matlab_release_tag: 'r2021a'
         os_info_tag: 'aws-batch'
         is_default_os: false

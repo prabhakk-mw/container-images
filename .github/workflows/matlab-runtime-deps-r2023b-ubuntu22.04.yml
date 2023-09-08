@@ -23,7 +23,7 @@ jobs:
     secrets: inherit
     with:
         docker_build_context: './matlab-runtime-deps/r2023b/ubuntu22.04'
-        base_image_name: mathworks/matlab-runtime-deps
+        base_image_name: prabhakk/matlab-runtime-deps
         matlab_release_tag: 'r2023b'
         os_info_tag: 'ubuntu22.04'
         is_default_os: true
