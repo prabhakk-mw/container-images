@@ -12,7 +12,6 @@ RUN yum update --disableplugin=subscription-manager -y \
     && yum --disableplugin=subscription-manager clean all -y
 
 ENV LANG C
-RUN [ -s /etc/machine-id ] || dbus-uuidgen > /etc/machine-id
 RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
 
 # Uncomment the following RUN yum statement to enable code generation capabilities,
